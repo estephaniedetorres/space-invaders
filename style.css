@@ -1,0 +1,265 @@
+/* Retro font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000; /* dark retro background */
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+  color: #a8a8a8; /* soft retro text */
+}
+
+/* CRT scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 50%, transparent 50%);
+  background-size: 100% 4px;
+  mix-blend-mode: overlay;
+}
+
+canvas { 
+  display: block; 
+  touch-action: none;
+  border: 2px solid #555; /* muted border */
+  box-shadow: 0 0 10px #333, 0 0 20px #222; /* subtle glow */
+}
+
+p {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  font-size: 14px;
+  color: #a8a8a8;
+  z-index: 1000;
+}
+
+#scoreEl {
+  color: #c0c0c0;
+}
+#livesHearts {
+  image-rendering: pixelated;
+  font-size: 16px;
+  display: inline-block;
+  text-shadow: 0 0 3px red, 0 0 6px darkred;
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#instructionsModal {
+  display: none; /* already set */
+}
+.modal-content {
+  background-color: #111;
+  padding: 25px 35px;
+  border: 2px solid #555;
+  color: #c0c0c0;
+  text-align: center;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 80%;
+}
+
+/* Close button */
+.close {
+  color: #c0c0c0;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+/* Start Menu */
+#startMenu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #c0c0c0;
+  z-index: 2000;
+  text-shadow: 0 0 3px #444;
+}
+
+#startMenu button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  background: #111;
+  color: #c0c0c0;
+  border: 2px solid #555;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#startMenu button:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Game Over Menu */
+#gameOverMenu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #c0c0c0;
+  z-index: 2000;
+  text-shadow: 0 0 3px #444;
+}
+
+#gameOverMenu h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+#gameOverMenu button {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  background: #111;
+  color: #c0c0c0;
+  border: 2px solid #555;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#gameOverMenu button:hover {
+  background: #222;
+  color: #fff;
+}
+
+#hud {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1000;
+}
+
+#hud button {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #111;
+    color: #c0c0c0;
+    border: 2px solid #555;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+#hud button:hover {
+    background: #222;
+    color: #fff;
+}
+
+#hud p {
+    margin: 0;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+
+#levelDisplay {
+  position: fixed;
+  left: 10px;
+  top: 40px;
+  font-size: 14px;
+  color: #c0c0c0;
+  z-index: 1000;
+}
+
+#backToMenuBtn {
+  position: fixed;
+  right: 10px;
+  top: 50px;
+  font-size: 14px;
+  color: #c0c0c0;
+  z-index: 1000;
+}
+#restartTopBtn {
+  position: fixed;
+  right: 10px;
+  top: 90px;
+  font-size: 14px;
+  color: #c0c0c0;
+  z-index: 1000;
+}
+
+#restartGame, #backMenu, #nextLevelBtn, #restartBtn {
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#restartGame:hover, #backMenu:hover, #nextLevelBtn:hover, #restartBtn:hover {
+  background: #555;
+}
+
+/* Mobile Controls */
+#mobileControls {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none; /* hide by default */
+  gap: 15px;
+  z-index: 2000;
+}
+
+#mobileControls button {
+  padding: 1vh 1.5vw;
+  font-size: 2vh;
+  background: #111;
+  color: #c0c0c0;
+  border: 2px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#mobileControls button:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Show on mobile and tablet screens */
+@media (max-width: 1024px) {
+  #mobileControls {
+    display: flex;
+  }
+}
+

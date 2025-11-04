@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Space Invaders</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas></canvas>
+
+  <!-- HUD -->
+  <div id="hud" style="display:none;">
+    <button id="restartTopBtn">Restart</button>
+    <button id="backToMenuBtn">Back to Menu</button>
+    <p>Score:<span id="scoreEl">0</span></p>
+    <p id="levelDisplay">Level: 1 (Easy)</p>
+<div id="livesDisplay" style="font-family:'Press Start 2P', monospace; font-size:14px;">
+  LIVES: <span id="livesBar"></span>
+</div>
+
+
+</div>
+
+  </div>
+
+  <!-- Start Menu -->
+  <div id="startMenu">
+    <h1>Space Invaders</h1>
+    <button id="playBtn">Play</button>
+    <button id="instructionsBtn">Instructions</button>
+  </div>
+
+  <!-- Instructions Modal -->
+  <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+      <span id="closeInstructions" class="close">&times;</span>
+      <h2>Instructions</h2>
+      <ul>
+        <li>Move Left: Press A</li>
+        <li>Move Right: Press D</li>
+        <li>Shoot: Press Space</li>
+        <li>Shield: Press S</li>
+        <li>Shoot Rapidly: Press F</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Game Over Menu -->
+  <div id="gameOverMenu" style="display:none;">
+    <h2>Game Over</h2>
+    <button id="restartBtn">Restart</button>
+  </div>
+
+  <!-- Mobile Controls -->
+  <div id="mobileControls" style="display:none; position:fixed; bottom:20px; width:100%; justify-content:center; gap:20px; z-index:1000;">
+    <button id="leftBtn">◀</button>
+    <button id="shootBtn">●</button>
+    <button id="rightBtn">▶</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
